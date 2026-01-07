@@ -18,8 +18,10 @@ export default function Partr2() {
       >
         Click me
       </button>
-      <div className="mx-auto mt-10 w-30 h-30 text-center bg-orange-400 flex justify-center items-center font-bolt
-      md:bg-blue-400 transition-colors ease-in-out duration-500 lg:bg-red-500 xl:bg:green-500 2xl:bg-purple-500">
+      <div
+        className="mx-auto mt-10 w-30 h-30 text-center bg-orange-400 flex justify-center items-center font-bolt
+      md:bg-blue-400 transition-colors ease-in-out duration-500 lg:bg-red-500 xl:bg:green-500 2xl:bg-purple-500"
+      >
         ADAPTIVE
       </div>
     </div>

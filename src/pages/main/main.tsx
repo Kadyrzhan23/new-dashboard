@@ -1,7 +1,4 @@
-import React from 'react'
 
 export default function main() {
-  return (
-    <div className='text-white font-bold text-center'>main</div>
-  )
+  return <div className="text-white font-bold text-center">main</div>;
 }

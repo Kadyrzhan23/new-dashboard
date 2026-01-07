@@ -1,7 +1,6 @@
 import Swal from "sweetalert2";
 
 
-
 export function errorMessage(message: string) {
     Swal.fire({
         icon: "error",
@@ -22,6 +21,7 @@ export function warningMessage(message: string,title?: string) {
 }
 
 
+
 export function successMessage(message: string,title?: string) {
     Swal.fire({
         icon: "success",
@@ -30,3 +30,5 @@ export function successMessage(message: string,title?: string) {
         // footer: '<a href="#">Why do I have this issue?</a>'
       });
 }
+
+
