@@ -30,7 +30,7 @@ export function UserOverview({ user }: Props) {
   const [_, setIsLoading] = useState(false);
   const [userStatus, setUserStatus] = useState<string>(user.role);
   const [selectValue, setSelectValue] = useState(user.manager.name);
-  console.log(isSelectOfStatusActive);
+  console.log(userStatus);
   async function handleManagerChange() {
     setIsLoading(true);
     try {
@@ -102,8 +102,8 @@ export function UserOverview({ user }: Props) {
                         onChange={(e) => setUserStatus(e.target.value)}
                         className="rounded-xl border border-gray-200 bg-white px-4 py-2 text-sm"
                       >
-                        <option>Розница</option>
-                        <option>Оптовик</option>
+                        <option value={"user"}>Розница</option>
+                        <option value={"superUser"}>Оптовик</option>
                       </select>
 
                       <Save
