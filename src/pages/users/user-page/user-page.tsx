@@ -1,18 +1,21 @@
 import { UserOverview } from "./UserOverview.tsx";
 import { AddressSection } from "./AddressSection.tsx";
-import { PurchaseAnalytics } from "./PurchaseAnalytics.tsx";
+import { PurchaseAnalytics } from "./purchase-analytics/PurchaseAnalytics.tsx";
 import { OrderHistoryTable } from "./OrderHistoryTable.tsx";
-import { useState } from "react";
-
+import type {UserType} from '../types.ts' 
 const user = {
   _id: "695b81c3777da2c4177f8b82",
   name: "Антон Сухов",
   phoneNumber: "+998903726734",
-  role: "superUser",
+  role: "superUser" as UserType,
   address: [
     {
       address: "ул. Афросияб, 2Б",
       organization: 'БЦ "Dalston"',
+    },
+    {
+      address: "ул. Шота Руставели, 15",
+      organization: 'Офис "Tech Solutions"',
     },
   ],
   city: "",
@@ -39,89 +42,6 @@ const user = {
     month: 1,
     year: 1989,
   },
-};
-
-console.log(user)
-
-// Mock user data
-const mockUser = {
-  id: "47832",
-  fullName: "Sarah Johnson",
-  phone: "+1 (555) 123-4567",
-  role: "manager",
-  telegram: "@sarahjohnson",
-  status: "active" as const,
-  avatar:
-    "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop",
-  manager: {
-    name: "Michael Roberts",
-    id: "12345",
-  },
-  registrationDate: "March 15, 2024",
-  birthday: "August 22, 1990",
-};
-
-// Mock addresses
-const mockAddresses = [
-  {
-    id: "1",
-    organization: "Tech Solutions Inc.",
-    street: "1234 Innovation Drive, San Francisco, CA 94105",
-  },
-  {
-    id: "2",
-    organization: "Creative Studio",
-    street: "5678 Design Boulevard, Suite 200, San Francisco, CA 94107",
-  },
-  {
-    id: "3",
-    organization: "Home Office",
-    street: "910 Residential Lane, Apt 4B, Oakland, CA 94612",
-  },
-];
-
-// Mock analytics
-const mockAnalytics = {
-  totalOrders: 127,
-  totalSpent: 45620.5,
-  averageOrderValue: 359.21,
-  topProducts: [
-    { name: "Premium Wireless Headphones", count: 24 },
-    { name: "Smart Watch Series 5", count: 18 },
-    { name: "Laptop Stand Pro", count: 15 },
-  ],
-  recentOrders: [
-    {
-      id: "ORD-1289",
-      date: "Jan 2, 2026",
-      products: ["Wireless Mouse", "USB-C Cable"],
-      amount: 89.99,
-    },
-    {
-      id: "ORD-1278",
-      date: "Dec 28, 2025",
-      products: ["Mechanical Keyboard"],
-      amount: 149.99,
-    },
-    {
-      id: "ORD-1265",
-      date: "Dec 22, 2025",
-      products: ["Monitor Stand", "Cable Organizer"],
-      amount: 75.5,
-    },
-    {
-      id: "ORD-1251",
-      date: "Dec 15, 2025",
-      products: ["Desk Lamp LED"],
-      amount: 45.0,
-    },
-    {
-      id: "ORD-1242",
-      date: "Dec 10, 2025",
-      products: ["Ergonomic Chair Cushion"],
-      amount: 39.99,
-    },
-  ],
 };
 
 // Mock order history
@@ -237,7 +157,6 @@ const mockOrders = [
 ];
 
 export default function userCard() {
-    
   return (
     <div className="min-h-screen bg-neutral-50">
       {/* Header */}
@@ -258,10 +177,10 @@ export default function userCard() {
           <UserOverview user={user} />
 
           {/* Address Section */}
-          <AddressSection addresses={mockAddresses} />
+          <AddressSection addresses={user.address} />
 
           {/* Purchase Analytics Section */}
-          <PurchaseAnalytics analytics={mockAnalytics} />
+          <PurchaseAnalytics />
 
           {/* Order History Table */}
           <OrderHistoryTable orders={mockOrders} />

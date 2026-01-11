@@ -1,24 +1,41 @@
 import { UserOverview } from "./UserOverview.tsx";
 import { AddressSection } from "./AddressSection.tsx";
-import { PurchaseAnalytics } from "./PurchaseAnalytics.tsx";
+import { PurchaseAnalytics } from "./purchase-analytics/PurchaseAnalytics.tsx";
 import { OrderHistoryTable } from "./OrderHistoryTable.tsx";
 
 // Mock user data
 const mockUser = {
-  id: "47832",
-  fullName: "Sarah Johnson",
-  phone: "+1 (555) 123-4567",
-  role: "manager",
+  _id: "47832",
+  name: "Sarah Johnson",
+  phoneNumber: "+1 (555) 123-4567",
+  role: "superUser",
+  address: [
+    {
+      address: "ул. Афросияб, 2Б",
+      organization: 'БЦ "Dalston"',
+    },
+  ],
+  city: "Samarkand",
   telegram: "@sarahjohnson",
-  status: "active" as const,
   avatar:
     "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop",
+  isActive: true,
   manager: {
     name: "Michael Roberts",
     id: "12345",
   },
-  registrationDate: "March 15, 2024",
-  birthday: "August 22, 1990",
+  regDate: "March 15, 2024",
+  creationTime: 1766351612,
+  identifier: "00003",
+  birthday: {
+    str: "1989-01-22",
+    date: 601430400000,
+    day: 22,
+    month: 1,
+    year: 1989,
+  },
+  __v: 0,
+  basked: [],
 };
 
 // Mock addresses
@@ -31,8 +48,7 @@ const mockAddresses = [
   {
     id: "2",
     organization: "Creative Studio",
-    street:
-      "5678 Design Boulevard, Suite 200, San Francisco, CA 94107",
+    street: "5678 Design Boulevard, Suite 200, San Francisco, CA 94107",
   },
   {
     id: "3",
@@ -205,8 +221,7 @@ export default function userCard() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 py-4 sm:py-6">
           <h1 className="text-2xl sm:text-3xl">User Profile</h1>
           <p className="text-sm sm:text-base text-neutral-600 mt-1 sm:mt-2">
-            View and manage user information, addresses, and
-            order history
+            View and manage user information, addresses, and order history
           </p>
         </div>
       </div>

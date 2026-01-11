@@ -7,12 +7,9 @@ export interface UserAddress {
 }
 
 export interface UserManager {
-  _id: {
-    $oid: string;
-  };
   name: string;
   chat_id?: string;
-  id: string;
+  _id: string;
   __v?: number;
 }
 
@@ -40,7 +37,7 @@ export interface User {
   isActive: boolean;
   manager: UserManager;
 
-  basket: unknown[];
+  basket: any[];
   updates?: string;
 
   regDate: string;
